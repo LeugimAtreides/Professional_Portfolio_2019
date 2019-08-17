@@ -1,0 +1,26 @@
+{
+  "name": "professional_portfolio_2019",
+  "version": "1.0.0",
+  "description": "Full-Stack MERN Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeugimAtreides/Professional_Portfolio_2019.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "React.JS",
+    "Express",
+    "Node.JS"
+  ],
+  "author": "M.E. Villarreal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeugimAtreides/Professional_Portfolio_2019/issues"
+  },
+  "homepage": "https://github.com/LeugimAtreides/Professional_Portfolio_2019#readme"
+}
