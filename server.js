@@ -16,10 +16,15 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Add routes, both API and view
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-    process.env.MONGOD_URI || "mongod://localhost/portfolio"
+    process.env.MONGOD_URI || "mongodb://localhost/portfolio",
+    {
+      useCreateIndex: true,
+      useNewUrlParser: true
+    }
 )
 
 // Start the API server

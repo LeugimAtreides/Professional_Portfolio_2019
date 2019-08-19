@@ -6,6 +6,7 @@ const projectSchema = new Schema ({
     description: { type: String, required: true },
     image: { type: String, required: true },
     technologies: { type: Array, required: true },
+    link: { type: String, required: true }
 });
 
 const Project = mongoose.model("Project", projectSchema);
