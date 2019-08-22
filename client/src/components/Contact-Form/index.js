@@ -1,62 +1,70 @@
 import React, { Component } from "react";
 import "./style.css";
+import FormValidator from "../../utils/FormValidator";
+import axios from "axios";
 
 class ContactForm extends Component {
-  state = {
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  };
 
-  validateForm = () => {
-    if (this.state.name == "") {
-      document.getElementById("status").innerHTML = "Name cannot be empty";
-      return false;
-    }
+  constructor() {
+    super();
 
-    if (this.state.email == "") {
-      document.getElementById("status").innerHTML = "Email cannot be empty";
-      return false;
-    } else {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (!re.test(this.state.email)) {
-        document.getElementById("status").innerHTML = "Email format invalid";
-        return false;
-      }
-    }
+    this.validator = new FormValidator([
+      { field: "name", method: "isEmpty", validWhen: false, message: "Please provide a name"},
+      { field: "subject", method: "isEmpty", validWhen: false, message: "Please provide a subject"},
+      { field: "email", method: "isEmpty", validWhen: false, message: "Please provide an email address"},
+      { field: "email", method: "isEmail", validWhen: true, message: "That is not valid email"},
+      { field: "message", method: "isEmpty", valideWhen: false, message: "Please provide a message"}
+    ]);
 
-    if (this.state.subject == "") {
-      document.getElementById("status").innerHTML = "Subject cannot be empty";
-      return false;
-    }
+    this.state = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      validation: this.validator.valid(),
+    };
 
-    document.getElementById("status").innerHTML = "Sending...";
-    document.getElementById("contact-form").submit();
-  };
+    this.submitted = false;
+
+  }
+
 
   sendEmail = () => {
-    $.ajax({
+
+    axios({
+      method: "post",
       url: "mail.php",
-      type: "POST",
-      data: formData,
-      success: function(data, textStatus, jqXHR) {
-        $("#status").text(data.message);
-        if (data.code)
-          //If mail was sent successfully, reset the form.
-          $("#contact-form")
-            .closest("form")
-            .find("input[type=text], textarea")
-            .val("");
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        $("#status").text(jqXHR);
+      data: {
+        name: this.state.name,
+        email: this.state.email,
+        subject: this.state.subject,
+        message: this.state.message
       }
-    });
+    }).then(res => {
+      console.log(res);
+      console.log(res.data);
+      if (res.data) {
+
+        this.setState({
+          projects: []
+        });
+
+        document.getElementById
+
+      }
+    }).catch(err => console.log(err))
   };
 
-  onHandleContactFormSubmit = () => {
-    this.validateForm().then(this.sendEmail);
+  onHandleContactFormSubmit = event => {
+    event.preventDefault();
+
+    const validation = this.validator.validate(this.state);
+    this.setState({ validation });
+    this.submitted = true;
+
+    if (validation.isValid) {
+      this.sendEmail();
+    }
   };
 
   handleFormChange = event => {
@@ -67,6 +75,10 @@ class ContactForm extends Component {
   }
 
   render() {
+    let validation = this.submitted ?
+                      this.validator.validate(this.state) :
+                      this.state.validation
+
       return (
           <section className="mb-4">
 
@@ -83,16 +95,18 @@ class ContactForm extends Component {
                         <div className="row">
 
                             <div className="col-md-6">
-                                <div className="md-form mb-0">
+                                <div className={validation.name.isInvalid && "has-error md-form mb-0"}>
                                     <input type="text" id="name" value={this.state.name} onChange={this.handleFormChange} name="name" className="form-control" />
-                                    <label for="name" className="">Your name</label>
+                                    <label htmlFor="name" className="">Your name</label>
+                                    <span className="help-block">{validation.name.message}</span>
                                 </div>
                             </div>
 
                             <div className="col-md-6">
-                                <div class="md-form mb-0">
+                                <div className={validation.email.isInvalid && "has-error md-form mb-0"}>
                                     <input type="text" id="email" name="email" value={this.state.email} onChange={this.handleFormChange} className="form-control" />
-                                    <label for="email" className="">Your email</label>
+                                    <label htmlFor="email" className="">Your email</label>
+                                    <span className="help-block">{validation.email.message}</span>
                                 </div>
                             </div>
 
@@ -101,9 +115,10 @@ class ContactForm extends Component {
                         <div className="row">
 
                             <div className="col-md-12">
-                                <div className="md-form mb-0">
+                                <div className={validation.subject.isInvalid && "has-error md-form mb-0"}>
                                     <input type="text" id="subject" name="subject" value={this.state.subject} onChange={this.handleFormChange} className="form-control" />
-                                    <label for="subject" className="">Subject</label>
+                                    <label htmlFor="subject" className="">Subject</label>
+                                    <span className="help-block">{validation.subject.message}</span>
                                 </div>
                             </div>
 
@@ -113,9 +128,10 @@ class ContactForm extends Component {
 
                             <div className="col-md-12">
 
-                                <div className="md-form">
+                                <div className={validation.message.isInvalid && "has-error md-form"}>
                                     <textarea type="text" id="message" name="message" value={this.state.message} onChange={this.handleFormChange} rows="2" className="form-control md-textarea"></textarea>
-                                    <label for="message">Your message</label>
+                                    <label htmlFor="message">Your message</label>
+                                    <span className="help-block">{validation.message.message}</span>
                                 </div>
 
                             </div>

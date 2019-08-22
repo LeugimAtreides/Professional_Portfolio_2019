@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Profile from "../../assets/img/profile/LinkedIn-Profile.jpg";
 
-
 class Bio extends Component {
 
     render() {

@@ -24,7 +24,7 @@ class Projects extends Component {
     API.getProjectByTech(this.state.q)
       .then(res =>
         this.setState({
-          [name]: value
+          projects: res.data
         })
       )
       .catch(() =>

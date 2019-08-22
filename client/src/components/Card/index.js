@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ icon, title, children }) {
+function Card({ icon, name, children }) {
     return (
         <div className="card mt-4">
             <div className="card-header">
@@ -14,3 +14,5 @@ function Card({ icon, title, children }) {
     </div>
     );
 }
+
+export default Card;
