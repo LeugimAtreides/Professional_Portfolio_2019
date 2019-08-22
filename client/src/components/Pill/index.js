@@ -16,11 +16,9 @@ class Pill extends Component {
         return (
             <HashRouter>
                 <div className="row">
-                    <div class="col-md-12 col-lg-8 col-xl-6">
+                    <div className="col-md-12 col-lg-8 col-xl-6">
                         <ul className="nav md-pills nav-justified pills-rounded pills-purple-gradient">
-                            <li className="nav-item">
-                                <NavLink className="nav-link" data-toggle="tab" href="#home" exact to="/">Home</NavLink>
-                            </li>
+
                             <li className="nav-item">
                                 <NavLink className="nav-link" data-toggle="tab" href="#bio" to="/bio">Bio</NavLink>
                             </li>
@@ -33,9 +31,6 @@ class Pill extends Component {
                         </ul>
                     </div>
                     <div className="tab-content">
-                        <div className="tab-pane fade in show active" id="home" role="tabpanel">
-                            <Route exact path="/" component={Home} />
-                        </div>
                         <div className="tab-pane fade" id="bio" role="tabpanel">
                             <Route path="/bio" component={Bio} />
                         </div>

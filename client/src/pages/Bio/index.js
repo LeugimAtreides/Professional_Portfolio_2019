@@ -6,7 +6,7 @@ class Bio extends Component {
     render() {
         return (
             <div class="media">
-                <img class="d-flex align-self-center mr-3" src={Profile} alt="Profile Image" />
+                <img class="d-flex align-self-center mr-3" src={Profile} alt=""/>
                 <div class="media-body">
                     <h5 class="mt-0 font-weight-bold">About Me</h5>
                     <p>

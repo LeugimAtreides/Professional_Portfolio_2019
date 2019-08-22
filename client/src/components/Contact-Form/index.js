@@ -49,7 +49,7 @@ class ContactForm extends Component {
           projects: []
         });
 
-        document.getElementById
+      
 
       }
     }).catch(err => console.log(err))
@@ -139,9 +139,9 @@ class ContactForm extends Component {
                     </form>
 
                     <div className="text-center tet-md-left">
-                        <a className="btn btn-primary" onClick={this.onHandleContactFormSubmit}>
+                        <button className="btn btn-primary" onClick={this.onHandleContactFormSubmit}>
                             Send message
-                        </a>
+                        </button>
                     </div>
 
                 </div>

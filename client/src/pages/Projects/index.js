@@ -47,12 +47,12 @@ class Projects extends Component {
 
   handleFormSubmit = event => {
       event.preventDefault();
-      this.getProjects
+      this.getProjects()
   };
 
   handleButtonSubmit = event => {
       event.preventDefault();
-      this.getAllProjects;
+      this.getAllProjects();
   }
 
   render() {

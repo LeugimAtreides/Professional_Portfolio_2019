@@ -15,7 +15,7 @@ class FormValidator {
               validator[v.method] : 
               v.method
         
-        if(state[v.field] == undefined) {
+        if(state[v.field] === undefined) {
           validation[v.field] = { isInvalid: true, message: v.message }
           validation.isValid = false;
         }

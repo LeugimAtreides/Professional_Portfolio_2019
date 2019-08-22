@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
-import registerServiceWorker from "./registerServiceWorker";
+
 
 ReactDOM.render(
 <GoogleReCaptchaProvider
@@ -13,4 +13,4 @@ ReactDOM.render(
 
 </GoogleReCaptchaProvider>
     ,document.getElementById("root"));
-    registerServiceWorker();
+   
