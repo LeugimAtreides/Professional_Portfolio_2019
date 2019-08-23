@@ -35,15 +35,15 @@ function Footer() {
                         </a>
 
                         <a className="navbar-brand" href="https://github.com/LeugimAtreides">
-                            <i class="fab fa-github-square"></i>
+                            <i className="fab fa-github-square"></i>
                         </a>
 
                         <a className="navbar-brand" href="https://www.linkedin.com/in/miguel-villarreal-90b271b1/">
-                            <i class="fab fa-linkedin"></i>
+                            <i className="fab fa-linkedin"></i>
                         </a>
 
                         <a className="navbar-brand footer images" href="https://stackoverflow.com/users/11558771/miguel-villarreal">
-                            <i class="fab fa-stack-overflow"></i>
+                            <i className="fab fa-stack-overflow"></i>
                         </a>
 
                     </div>

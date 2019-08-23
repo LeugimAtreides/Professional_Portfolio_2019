@@ -1,11 +1,12 @@
 import React from "react";
-import logo from "../../assets/img/logo/homelogo.png/";
+import siteLogo from "../../assets/img/logo/homelogo.png";
+import "./style.css";
 
 function Logo() {
     return (
-        <div className="row">
-            <div className="col-md-12 mb-3">
-                <img src={logo} alt="center logo" className="img-fluid z-depth-1" />
+        <div className="row.fluid logo-row">
+            <div className="col-md-12 mb-4 text-center">
+                <img src={siteLogo} alt="center logo" className="img-fluid logo mt-4" />
             </div>
         </div>
     )

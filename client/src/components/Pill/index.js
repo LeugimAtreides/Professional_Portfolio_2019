@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import {
     Route,
     NavLink,
-    HashRouter
+    BrowserRouter
 } from "react-router-dom";
 
-import Home from "../../pages/Home";
 import Bio from "../../pages/Bio";
 import Contact from "../../pages/Contact";
 import Projects from "../../pages/Projects";
@@ -14,7 +13,7 @@ import Projects from "../../pages/Projects";
 class Pill extends Component {
     render() {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div className="row">
                     <div className="col-md-12 col-lg-8 col-xl-6">
                         <ul className="nav md-pills nav-justified pills-rounded pills-purple-gradient">
@@ -31,18 +30,18 @@ class Pill extends Component {
                         </ul>
                     </div>
                     <div className="tab-content">
-                        <div className="tab-pane fade" id="bio" role="tabpanel">
+                        <div className="tab-pane fade" role="tabpanel" id="bio">
                             <Route path="/bio" component={Bio} />
                         </div>
-                        <div className="tab-pane fade" id="projects" role="tabpanel">
+                        <div className="tab-pane fade" role="tabpanel" id="projects">
                             <Route path="/projects" component={Projects} />
                         </div>
-                        <div className="tab-pane fade" id="contact" role="tabpanel">
+                        <div className="tab-pane fade" role="tabpanel" id="contact">
                             <Route path="/contact" component={Contact} />
                         </div>
                     </div>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         )
     }
 }
