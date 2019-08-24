@@ -57,7 +57,7 @@ class Projects extends Component {
 
   render() {
       return (
-        <div className="container">
+        <div className="row">
             <div className="row">
                 <div className="col-md-12">
                     <Card title="Personal Projects">

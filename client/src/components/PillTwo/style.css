@@ -8,7 +8,7 @@
 }
 
 .center-router {
-    background-image: linear-gradient(to right, #369df5 0%, #09164245 51%, #0106a5 100%);
+    background-image: linear-gradient(to right, #369df5 0%, #09164214 51%, #143277d9 100%);
     margin-left: 10px;
     margin-right: 10px;
     border: white solid 3px;
@@ -17,6 +17,12 @@
 
 .nav-pills {
     border-radius: 3.5rem;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #ff0909c7;
+    /* text-shadow: 20px 18px black; */
 }
 
 .one {
@@ -33,4 +39,9 @@
     border-top-right-radius: 2rem!important;
     border-bottom-right-radius: 2rem!important;
     box-shadow: 1rem 1rem 2rem rgba(126,227,272,0.4)
+}
+
+.thingy {
+    padding: 20px;
+    margin: auto;
 }

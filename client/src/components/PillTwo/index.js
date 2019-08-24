@@ -55,7 +55,7 @@ class PillTwo extends Component {
               </li>
             </ul>
           </div>
-          <div className="tab-content">
+          <div className="tab-content thingy">
             {/* <div className="tab-pane fade" role="tabpanel"> */}
               <Switch>
                 <Route exact path="/bio" component={Bio} />
