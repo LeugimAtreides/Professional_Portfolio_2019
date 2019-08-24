@@ -12,8 +12,9 @@ function NotFound() {
                         <h1 className="text-center">Error 404: Lost in Space</h1>
                         <h1 className="text-center">
                             <span role="img" aria-label="Lost astronaut Emoji">
-                                <img src={LostImage} alt="Lost astronaut" />
+                                <img className="img-fluid" src={LostImage} alt="Lost astronaut" />
                             </span>
+                            Your Page Wasn't Found!
                         </h1>
                     </div>
                 </div>

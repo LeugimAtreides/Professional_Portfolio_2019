@@ -1,3 +1,36 @@
 .fontPill {
     font-size: 40px;
+    color: white;
+}
+
+.center-router:hover {
+    background-position: right center;
+}
+
+.center-router {
+    background-image: linear-gradient(to right, #369df5 0%, #09164245 51%, #0106a5 100%);
+    margin-left: 10px;
+    margin-right: 10px;
+    border: white solid 3px;
+    border-radius: 4rem;
+}
+
+.nav-pills {
+    border-radius: 3.5rem;
+}
+
+.one {
+    border-top-left-radius: 2rem!important;
+    border-bottom-left-radius: 2rem!important;
+    box-shadow: -1rem 1rem 2rem rgba(126,227,272,0.4)
+}
+
+.two {
+    box-shadow: 0rem 1rem 2rem rgba(126,227,272,0.4)
+}
+
+.three {
+    border-top-right-radius: 2rem!important;
+    border-bottom-right-radius: 2rem!important;
+    box-shadow: 1rem 1rem 2rem rgba(126,227,272,0.4)
 }

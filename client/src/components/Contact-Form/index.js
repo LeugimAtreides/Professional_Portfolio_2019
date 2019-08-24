@@ -21,7 +21,7 @@ class ContactForm extends Component {
       email: "",
       subject: "",
       message: "",
-      validation: this.validator.valid(),
+      validation: this.validator.isValid(),
     };
 
     this.submitted = false;

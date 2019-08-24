@@ -19,8 +19,8 @@ class PillTwo extends Component {
                   onClick={this.toggleNav}
                   className={
                     window.location.pathname === "/bio"
-                      ? "nav-link active"
-                      : "nav-link"
+                      ? "nav-link one active center-router"
+                      : "nav-link one center-router"
                   }
                   to="/bio"
                 >
@@ -32,8 +32,8 @@ class PillTwo extends Component {
                   onClick={this.toggleNav}
                   className={
                     window.location.pathname === "/projects"
-                      ? "nav-link active"
-                      : "nav-link"
+                      ? "nav-link two active center-router"
+                      : "nav-link two center-router"
                   }
                   to="/projects"
                 >
@@ -45,8 +45,8 @@ class PillTwo extends Component {
                   onClick={this.toggleNav}
                   className={
                     window.location.pathname === "/contact"
-                      ? "nav-link active"
-                      : "nav-link"
+                      ? "nav-link three active center-router"
+                      : "nav-link three center-router"
                   }
                   to="/contact"
                 >

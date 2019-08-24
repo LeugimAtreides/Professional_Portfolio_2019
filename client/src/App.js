@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-import Bio from "./pages/Bio";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+// import Bio from "./pages/Bio";
+// import Projects from "./pages/Projects";
+// import Contact from "./pages/Contact";
 import Nav from "./components/Nav";
 import "./App.css";
 // import NavTwo from "./components/NavTwo";
@@ -19,9 +19,9 @@ function App() {
         {/* <NavTwo /> */}
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/bio" component={Bio} />
+          {/* <Route exact path="/bio" component={Bio} />
           <Route exact path="/projects" component={Projects} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/contact" component={Contact} /> */}
           <Route component={NotFound} />
         </Switch>
       </div>

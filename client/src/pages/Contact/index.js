@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ContactForm from "../../components/Contact-Form";
 
-import Wrapper from "../../components/Wrapper";
+import Card from "../../components/Card";
 
 class Contact extends Component {
     render(){
         return (
-            <Wrapper>
+            <Card>
                 <ContactForm />
-            </Wrapper>
+            </Card>
         )
     }
 }

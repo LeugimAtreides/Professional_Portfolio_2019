@@ -10,7 +10,7 @@ import "./style.css";
 
 function Footer() {
     return (
-        <footer className="page-footer font-small black pt-4 fixed-bottom">
+        <footer className="page-footer font-small black fixed-bottom">
             <div className="container-fluid text-center text-md-left">
                 <div className="row">
                     <div className="col-md-12 mt-md-0 mt-3">
