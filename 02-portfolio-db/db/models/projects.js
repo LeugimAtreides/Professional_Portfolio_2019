@@ -32,6 +32,6 @@ const projectSchema = new mongoose.Schema({
         default: false
     }
 })
-
+projectSchema.plugin(mongoosePaginate);
 const projectModel = mongoose.model('Projects', projectSchema);
 export default projectModel;
