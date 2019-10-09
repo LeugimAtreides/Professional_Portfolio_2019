@@ -1,5 +1,5 @@
 import express from 'express';
-import DbConn from './db/server';
+import DbConn from './db/index';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import Logger from './db/Logger';
@@ -24,7 +24,7 @@ class App {
         });
         expressApp.use('/', mainRouter);
         await expressApp.listen(3000);
-        Logger.ingo('HTTP server running on port 3000');
+        Logger.info('HTTP server running on port 3000');
     }
 }
 

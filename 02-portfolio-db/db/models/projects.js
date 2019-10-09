@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2'
 
 const { Schema } = mongoose;
 
@@ -33,5 +34,5 @@ const projectSchema = new mongoose.Schema({
     }
 })
 projectSchema.plugin(mongoosePaginate);
-const projectModel = mongoose.model('Projects', projectSchema);
+const projectModel = mongoose.model('Project', projectSchema);
 export default projectModel;

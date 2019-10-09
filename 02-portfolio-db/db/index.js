@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import { dbParams as config } from "./config";
-import Logger from ".Logger";
+import Logger from "./Logger";
 
 require("./models/projects");
-require("./models/documents");
+require("./models/user");
 
 class DbConn {
   constructor() {
@@ -59,4 +59,4 @@ class DbConn {
   }
 }
 
-export default dbConn;
+export default DbConn;
