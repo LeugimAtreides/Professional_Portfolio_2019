@@ -24,7 +24,7 @@ projectRouter.get("/projects/", async (req, res) => {
   }
 });
 
-projectRouter.get("/:id/boxes/", async (req, res) => {
+projectRouter.get("/:id/projects/", async (req, res) => {
   try {
     let paginateOptions;
     try {
