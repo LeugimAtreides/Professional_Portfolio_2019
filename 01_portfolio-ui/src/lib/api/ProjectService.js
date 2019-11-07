@@ -34,3 +34,5 @@ class ProjectService {
         return data
     }
 }
+
+export default ProjectService;

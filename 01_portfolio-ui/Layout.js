@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import VideoBackground from "./src/components/VideoBackground";
 import Home from "./containers/Home";
+import { BrowswerRouter as Router, Route, Link } from "react-router-dom";
 import MyLogo from "./src/components/MyLogo";
 import WelcomeText from "./src/components/WelcomeText";
 import "./Layout.css";
@@ -25,15 +26,22 @@ class Layout extends Component {
 
   render() {
     return (
-      <div className="layout-main">
-        <VideoBackground>
-          <MyLogo isVisible={false} />
-          {this.state.ready ? (<div>
-            <WelcomeText />
-          </div>) : (<div style={{display: "hidden"}}>
-          </div>)}
-        </VideoBackground>
-      </div>
+      <Router>
+        <div className="layout-main">
+          <VideoBackground>
+            <MyLogo isVisible={false} />
+            {this.state.ready ? (
+              <div>
+                <WelcomeText />
+              </div>
+            ) : (
+              <div style={{ display: "hidden" }}></div>
+            )}
+          </VideoBackground>
+          <Route exact path="/" component={Layout} />
+          <Route eact path="/home" component={Home} />
+        </div>
+      </Router>
     );
   }
 }
