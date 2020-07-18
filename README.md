@@ -1,2 +1,2 @@
-# Professional_Portfolio_2019
-Formalization and indexing of every project with a full M.E.R.N Stack that will make use of REST API calls, React, and Bootstrap CSS framework
+# Professional_Portfolio_2020
+A website built with React, Apollo-Express, GraphQL, and Prisma. It will make use of Material UI and will be dedicated to tracking my posts in social media, my personal projects, my professional collaborations, and will also house my blog dedicated to developer education.
