@@ -24,7 +24,6 @@ func (e *User) Enable() {
 }
 
 // DBMigrateUsers will create and migrate the tables, and then make the some relationships if necessary
-func DBMigrateUsers(db *gorm.DB) *gorm.DB {
+func DBMigrateUsers(db *gorm.DB) {
 	db.AutoMigrate(&User{})
-	return db
 }

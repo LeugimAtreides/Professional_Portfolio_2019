@@ -8,6 +8,7 @@ import (
 // Post is for my blog posts
 type Post struct {
 	gorm.Model
+	AuthorID uint           `json:"author_id"`
 	Author   Author         `gorm:"embedded;embeddedPrefix" json:"author"`
 	Upvotes  int32          `gorm:"<-" json:"upvotes"`
 	Content  string         `gorm:"<-" json:"content"`
@@ -16,7 +17,6 @@ type Post struct {
 }
 
 // DBMigratePosts will create and migrate the tables, and then make the some relationships if necessary
-func DBMigratePosts(db *gorm.DB) *gorm.DB {
+func DBMigratePosts(db *gorm.DB) {
 	db.AutoMigrate(&Post{})
-	return db
 }

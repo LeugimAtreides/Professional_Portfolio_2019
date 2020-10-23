@@ -16,7 +16,6 @@ type Project struct {
 }
 
 // DBMigrateProjects will create and migrate the tables, and then make the some relationships if necessary
-func DBMigrateProjects(db *gorm.DB) *gorm.DB {
+func DBMigrateProjects(db *gorm.DB) {
 	db.AutoMigrate(&Project{})
-	return db
 }

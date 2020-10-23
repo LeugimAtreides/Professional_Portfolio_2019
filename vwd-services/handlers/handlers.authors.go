@@ -2,7 +2,9 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/LeugimAtreides/Professional_Portfolio_2020/vwd-services/models"
 	"github.com/gorilla/mux"
@@ -37,9 +39,13 @@ func CreateAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 // GetAuthor gets author from db
 func GetAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-
-	name := vars["name"]
-	author := getAuthorOrGet404(db, name, w, r)
+	id, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		fmt.Sprintf("invalid ID provided in params. err: %d", err)
+		return
+	}
+	uID := uint(id)
+	author := getAuthorOrGet404(db, uID, w, r)
 	if author == nil {
 		return
 	}
@@ -49,13 +55,17 @@ func GetAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 // UpdateAuthor updates author in db
 func UpdateAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
+	id, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		fmt.Sprintf("invalid ID provided in params. err: %d", err)
+		return
 
-	name := vars["name"]
-	author := getAuthorOrGet404(db, name, w, r)
+	}
+	uID := uint(id)
+	author := getAuthorOrGet404(db, uID, w, r)
 	if author == nil {
 		return
 	}
-
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&author); err != nil {
 		respondError(w, http.StatusBadRequest, err.Error())
@@ -73,9 +83,13 @@ func UpdateAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 // DeleteAuthor deletes author from db
 func DeleteAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-
-	name := vars["name"]
-	author := getAuthorOrGet404(db, name, w, r)
+	id, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		fmt.Sprintf("invalid ID provided in params. err: %d", err)
+		return
+	}
+	uID := uint(id)
+	author := getAuthorOrGet404(db, uID, w, r)
 	if author == nil {
 		return
 	}
@@ -89,9 +103,13 @@ func DeleteAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 // DisableAuthor disables an author's status field
 func DisableAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-
-	name := vars["name"]
-	author := getAuthorOrGet404(db, name, w, r)
+	id, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		fmt.Sprintf("invalid ID provided in params. err: %d", err)
+		return
+	}
+	uID := uint(id)
+	author := getAuthorOrGet404(db, uID, w, r)
 	if author == nil {
 		return
 	}
@@ -106,9 +124,13 @@ func DisableAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 // EnableAuthor enables authors status field
 func EnableAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-
-	name := vars["name"]
-	author := getAuthorOrGet404(db, name, w, r)
+	id, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		fmt.Sprintf("invalid ID provided in params. err: %d", err)
+		return
+	}
+	uID := uint(id)
+	author := getAuthorOrGet404(db, uID, w, r)
 	if author == nil {
 		return
 	}
@@ -121,9 +143,9 @@ func EnableAuthor(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 }
 
 // getAuthorOrGet404 gets a author instance if exists, or respond the 404 error otherwise
-func getAuthorOrGet404(db *gorm.DB, name string, w http.ResponseWriter, r *http.Request) *models.Author {
+func getAuthorOrGet404(db *gorm.DB, id uint, w http.ResponseWriter, r *http.Request) *models.Author {
 	author := models.Author{}
-	if err := db.First(&author, models.Author{User: models.User{Name: name}}).Error; err != nil {
+	if err := db.First(&author, models.Post{Model: gorm.Model{ID: id}}).Error; err != nil {
 		respondError(w, http.StatusNotFound, err.Error())
 		return nil
 	}
